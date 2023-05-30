@@ -55,8 +55,11 @@
           {% if transcript_length > 0 %}
           <ul>
             {% for transcript in transcripts %}
-            <li class="youtube-marker" data-start="{{transcript.start}}" data-duration="{{transcript.duration}}">
-              {{ transcript.text }}
+            <li>
+              <span class="youtube-marker" data-start="{{transcript.start}}" data-duration="{{transcript.duration}}">
+                {{ transcript.text }}
+              </span>
+              <span>({{ transcript.start }})</span>
             </li>
             {% endfor %}
           </ul>
@@ -116,6 +119,9 @@
       var MarkersInit = function (markers) {
         var elements = document.querySelectorAll('.youtube-marker')
         Array.prototype.forEach.call(elements, function (el, i) {
+          var text = el.innerText || el.textContent
+          console.log('text', text)
+          el.innerHTML = text.replace(/[a-zA-Z0-9]/g, '_')
           var time_start = el.dataset.start
           var time_end = String(Number(el.dataset.start) + Number(el.dataset.duration))
           var id = el.dataset.id
