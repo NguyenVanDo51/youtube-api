@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-t(@57$+kvf0!js7pao1us0dapwy41s#0ps-lemz&gls2($zavw
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['13.213.74.48']
-
+ALLOWED_HOSTS = ['13.213.74.48', '127.0.0.1']
 
 # Application definition
 
@@ -37,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'youtube'
+    'youtube',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'api.urls'
 
